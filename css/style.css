@@ -2,6 +2,10 @@
 html {
   overflow-x: hidden; }
 
+.text {
+  margin-top: 50px;
+}
+
 body {
   line-height: 1.7;
   color: gray;
@@ -530,9 +534,9 @@ body:after {
     .sticky-wrapper .site-navbar .site-menu-toggle {
       color: #fff; }
     .sticky-wrapper .site-navbar .site-logo a {
-      color: #fff; }
+      color: #006adb }
     .sticky-wrapper .site-navbar .site-menu > li > a {
-      color: rgba(255, 255, 255, 0.7) !important; }
+      color: #000 !important; }
       .sticky-wrapper .site-navbar .site-menu > li > a:hover, .sticky-wrapper .site-navbar .site-menu > li > a.active {
         color: #fff !important; }
   .sticky-wrapper.is-sticky .site-navbar {
@@ -557,7 +561,7 @@ body:after {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  background-position: center center; }
+  background-position: center center;}
   .site-blocks-cover.overlay {
     position: relative; }
     .site-blocks-cover.overlay:before {
@@ -1659,7 +1663,9 @@ body:after {
   margin: 0;
   padding: 0;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 390px;
+ }
 
 .team-member .social {
   position: absolute;
