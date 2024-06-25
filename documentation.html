@@ -49,13 +49,13 @@
     </div>
    
     
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" style="background-color: lightgray; background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0"><span class="text-primary">.</span> </a></h1>
+            <h2 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Pop Zeitgeist<span class="text-primary">.</span> </a></h1>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -64,8 +64,9 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.html" class="nav-link">Home</a></li> 
                 <li><a href="jupyter_notebook.html" class="nav-link">Jupyter Notebook</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="visualisation.html" class="nav-link">Visualisation</a></li>
                 <li><a href="documentation.html" class="nav-link">Documentation</a></li>
+                
               </ul>
             </nav>
           </div>
@@ -89,15 +90,434 @@
           <div>
             <h1>Documentation</h1>
           </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <p>The Pop Zeitgeist project extracts, scrapes, and analyses song lyrics and related metadata from 2000 to 2023 with the goal of analysing and visualizing patterns in popular culture. This comprehensive study, also known as macroanalysis, enables us to categorize and understand song lyrics on a wide scale. As defined by Matthew L. Jockers in his book Macroanalysis, “the macroanalytic approach is simply another method of gathering details, bits of information that may have escaped our attention because of their sheer multitude. At a more sophisticated level, it is about accessing details that are otherwise unavailable, forgotten, ignored, or impossible to extract.”</p>
+            </div>
+            <div class="col-lg-12">
+              <p>After selecting and gathering data, we used Python packages like Pandas and Matplotlib to analyze our metadata. We visualized the results of scraping the lyrics in order to gain insights about gender, region, emotions, and frequently used terms, among other factors. By examining these aspects, the project seeks to uncover patterns and shifts in popular music over time. Our analysis covers thorough procedures for data collection, preparation, and visualization, as well as advanced natural language processing (NLP) techniques and statistical tools used to create insightful and entertaining visualizations. These algorithmic techniques helped us accomplish our goal of analyzing and interpreting the tunes.</p>
+            </div>
+            <div class="col-lg-12">
+              <p>The idea of using algorithmic tools in the process of interpreting data in a more critical sense, also explained by Stephen Ramsay that “we create tools—practical, instrumental, verifiable mechanisms—that enable critical engagement, interpretation, conversation, and contemplation. It proposes that we channel the heightened objectivity made possible by the machine into the cultivation of those heightened subjectivities necessary for critical work.” This quote emphasizes the significance of applying algorithmic tools, such as natural language processing (NLP) techniques and statistical analysis, to comprehend huge datasets like song lyrics. These technologies offer a methodical and objective approach to dealing with large amounts of data, revealing patterns and subtleties that might otherwise go unnoticed. This allows for a more nuanced and critical engagement with the data, resulting in deeper insights and interpretations of popular music patterns. This is consistent with Ramsay's notion of harnessing robots' objectivity to improve human subjective understanding and critical study of cultural processes.</p>
+            </div>
+            <div class="col-lg-12">
+              <p><b>The main research question</b> of our project is to analyze how popular music over time has evolved in different dimensions. 
+              </p>
+              <p>The development of the project has followed three macro stages:</p>
+              <ul>
+                <li>Gather the necessary data for analysis.</li>
+                <li>Clean and preprocess the collected data to make it suitable for analysis.</li>
+                <li>Analyse metadata to uncover trends related to song attributes.</li>
+                <li>Create visual representations of the analysis results.</li>
+              </ul>
+            </div>
+
+            <div class="col-lg-12">
+              <p>By examining these aspects, the project provides a comprehensive view of the trends and patterns in popular music from 2000 to 2010, contributing to our understanding of the cultural zeitgeist of the early 21st century.</p>
+            </div>
+
+            <div class="col-lg-12 my-3">
+            <h2>Methodologies:</h2>
+            </div>
+
+            <div class="col-lg-12">
+            <h3><b>1.Data Collection and Preparation:</b></h3>
+            </div>
+
+            <div class="col-lg-12">
+            <p>The first part of our project was to collect data and for that, the information was retrieved from the Wikipedia pages of the Billboard Year-End Hot 100 singles where we can find the tables of the rankings of our focused period 2000-2023. Then we prepare the data for analysis and for that we structure the data into structures such as Title, Artist, and Artist ID. The lyrics will be fetched from Genius with an API key with the help of the LyricsGenius package. The information of the artists will be queried on the basis of the Python libraries. Then the information will be integrated into data frames such as lyrics_df: Contains the filename and lyrics of each song, and metadata_df: Contains metadata related to each song such as genre, artist, and release date. This step of the project is important to extract information.</p>
+            </div>
+
+            <div class="col-lg-12">
+              <p>This step of the project is important to extract information when doing the macro analysis of this data which is not visible to the human eye normally. This approach will provide us with information about the patterns the songs followed in the time frame, the factors related to gender, specific word usage, etc. “Through the study and processing of large amounts of literary data, the method calls our attention to general trends and missed patterns that we must explore in detail and account for with new theories. If we consider that this macroanalytic approach simply provides an alternative method for accessing texts and simply another way of harvesting facts from and around texts”. </p>
+            </div>
+
+            <div class="col-lg-12">
+              <p>To facilitate our analysis of the metadata and lyrics of music from Billboard Hot 100 Songs, we intuitively reached out to the official website of  Billboard, where a dedicated page of year-end charts presents the rankings starting from 2006 to 2023, which unfortunately could not provide the complete information we need from 2000. What's more, the lyrics data were not presented on the official website due to copyright issues. Therefore, we had to turn to other reliable sources of information.</p>
+            </div>
+
+            <div class="col-lg-12">
+              <h4><b>1.1 Metadata: Scraped from the structured Wikipedia tables and Wikidata properties</b></h4>
+              </div>
+
+              <div class="col-lg-12">
+                <p>Among all the available sources on the internet, we found that Wikipedia holds a complete collection of the Billboard Year-End Hot 100 singles from 1959 to 2023, all of which are integrated into an <a href="https://en.wikipedia.org/wiki/Category:Lists_of_Billboard_Year-End_Hot_100_singles">ordered list of pages</a>  and presented in the form of tables. These perfectly structured tables and the same-patterned namings of Wikipedia pages make the automatic web scraping process easier and less prone to mistakes. 
+                </p>
+              </div>
+
+            <div class="col-lg-12">
+              <p>From the aforementioned Wikipedia pages, we can retrieve the titles of songs and the names of artists accordingly. However, besides this basic information, we still wanted to know more about the artists: their genders and their nationalities, with which we can make analysis through the scope of feminism and multiculturalism. 
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <p>Web scraping from Wikipedia pages of the artists is an unreliable method in this case since not all pages of people are edited in the same or structured format. The information on gender is barely mentioned and can only be inferred by pronouns, which are mostly binary and ignore the existence of non-binary genders. The information on nationalities is poorly structured, and stored in HTML classes or elements with diverse names without any naming regulations.
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <p>Therefore, for a reliable data source of the artists’ metadata, we turned to Wikidata, a highly structured knowledge base where information about an object can be retrieved with corresponding properties (e.g. P21 for the Sex or Gender, P27 for the Country of Citizenship).
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <p>With the help of the Python library BeatifulSoup which excels at parsing HTML and XML documents, we retrieve the aforementioned metadata information: the song title, the name of the artist, the gender of the artist, and their countries of origin, all of which were subsequently processed by the Python library Pandas and transformed into Dataframes with corresponding columns, finally they were stored in 24 different CSV files according to different years of the rankings. The raw data can be found in the <a href="https://github.com/delete4ever/pop_zeitgeist/tree/main/Metadata">Github repository.</a>
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <h4><b>1.2 Lyrics: Fetched with Genius API and the LyricsGenius
+              </b></h4>
+              </div>
+
+            <div class="col-lg-12">
+              <p>Among the several existing lyrics databases on the internet, we first checked which of them contains the most lyrics we need (with a total number of 2400, ideally), and only found that many of them stopped updating or were poorly maintained, some of which doesn’t even collect songs of Taylor Swift after 2016. Additionally, to achieve a legal and fair use of the lyrics, which are under the protection of copyright law, access to a database with open API is ideal for us.
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <p>Therefore, after taking into consideration the two main concerns, we chose <a href="https://genius.com/"> Genius.com</a> as our lyrics data source, which is the world's biggest collection of song lyrics and musical knowledge and a free API is available. Accessing data from the Genius website is relatively straightforward. The API allows developers to programmatically retrieve song and artist data from the site. However, the Genius API does not include a method for downloading the lyrics themselves. 
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <p>Fortunately, with the aid of the Python library LyricsGenius, the process was simplified with an easy-to-use interface for accessing song, artist, and lyrics data from Genius.com. Our lyrics were fetched successfully and stored in plain text files, put in 24 different files according to different years when the songs were on the HOT 100 rankings.
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <h3><b>2.Exploratory Data Analysis for Metadata
+              </b></h3>
+              </div>
+
+            <div class="col-lg-12">
+              <p>With all our metadata prepared, we chose to perform various exploratory data analysis techniques on them so that we could provide a comprehensive overview of the dataset and see the trends in artist demographics. Descriptive analysis and EDA techniques are essential for summarising and visualizing the main characteristics of the data. This analysis also helps to highlight significant changes or shifts in the demographics of popular artists, providing a clearer picture of the evolving landscape of popular music.
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <p>The following content is a brief summary of the method we used in this section. For the detailed implementation, please refer to the Jupyter notebooks in the next section of the website.</p>
+            </div>
+
+            <div class="col-lg-12">
+              <h4><b>2.1 Data Cleaning and Preparation:
+              </b></h4>
+              </div>
+
+            <div class="col-lg-12">
+              <p><b>Merging Data:</b> We combined the data from all 24 CSV files into a single comprehensive dataset using pandas' concat function to facilitate unified analysis.
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <p><b>Standardizing Categories:</b> Then we standardized the representation of countries and genders to maintain consistency. For example, converted variations of country names (e.g., "USA" and "United States") to a single standard form and ensured gender entries were consistent (e.g., "Male" and "Female").
+              </p>
+            </div>
+
+            <div class="col-lg-12">
+              <h4><b>2.2 Descriptive Statistics:
+              </b></h4>
+              </div>
+
+            
+            <div class="col-lg-12">
+              <p><b>2.2.1 Summary Statistics:</b> Calculated basic statistics such as counts and percentages for each column using pandas' describe and value_counts methods. This provided an initial overview of the dataset's structure and main characteristics.
+              </p>
+            </div>
+            
+            <div class="col-lg-12">
+              <h4><b>2.2.2 Trend Analysis:
+              </b></h4>
+              </div>
+
+              <div class="col-lg-12">
+                <p><b>Time Series Analysis:</b> Examined the trends in the number of artists from different countries and genders over the years by grouping the data by year and plotting the counts over time using Matplotlib and Seaborn.
+                </p>
+              </div>
+
+              <div class="col-lg-12">
+                <p><b>Line Charts:</b> Created line charts using Matplotlib and Seaborn to visualize the changes in the representation of different nationalities and genders over time. This helped to clearly see trends and shifts over the years.</p>
+              </div>
+
+              <div class="col-lg-12">
+                <h4><b>2.2.3 Categorical Analysis:
+                </b></h4>
+                </div>
+
+              <div class="col-lg-12">
+                <p><b>Find the Top Artists by Nationality and Gender:</b> Identified and visualized the most frequent nationalities and genders among artists each year using pandas' groupby and size functions to see which groups were most represented annually.</p>
+              </div>
+
+              <div class="col-lg-12">
+                <h3><b>3.Text analysis:
+                </b></h3>
+                </div>
+
+                <div class="col-lg-12">
+                  <p>To analyze the textual data of music lyrics, we used various natural language processing (NLP) techniques to explore trends and patterns in the lyrics, such as themes, sentiment, and word usage. </p>
+                </div>
+
+              <div class="col-lg-12">
+                <p>The combination of frequency analysis, sentiment analysis, and n-gram analysis provides a multifaceted view of the lyrical content, capturing both quantitative and qualitative aspects. They also allow us to examine the trends over time, revealing how the themes, sentiments, and language of popular music have evolved.</p>
+              </div>
+
+              <div class="col-lg-12">
+                <p>We have also tried to perform topic modeling on the lyrics, but the result didn’t make much sense no matter how we tuned the training parameters. This may highlight the unique nature of song lyrics and the need for specialized techniques to analyze such creative and short text forms.
+                </p>
+              </div>
+
+              <div class="col-lg-12">
+                <p>Below is a brief summary of what we have done, for the detailed implementation and visualization please move to the next session of the website.
+                </p>
+              </div>
+
+              <div class="col-lg-12">
+                <h4><b>3.1 Data Collection and Preparation:
+                </b></h4>
+                </div>
+
+                <div class="col-lg-12">
+                  <p><b>Lyrics Extraction:</b> As described in the previous section, we used the LyricsGenius library to programmatically retrieve song lyrics from Genius.com, which provided a comprehensive and reliable source for the lyrics.
+                  </p>
+                </div>
+
+                <div class="col-lg-12">
+                  <p><b>Text Cleaning:</b> We cleaned the lyrics data according to a common NLP pipeline, by removing punctuation, converting text to lowercase, and eliminating stop words using the Natural Language Toolkit (NLTK). This preprocessing step is essential to reduce noise and improve the accuracy of subsequent analysis.
+                  </p>
+                </div>
+
+                <div class="col-lg-12">
+                  <h4><b>3.2 Exploratory Data Analysis (EDA):
+                  </b></h4>
+                  </div>
+
+                <div class="col-lg-12">
+                  <p><b>Word Frequency Analysis:</b> Calculated the frequency of words in the lyrics to identify the most commonly used words in songs over the years. Then we visualized this data using word clouds and bar charts, through which we can see the common themes and trends in word usage.
+                  </p>
+                </div>
+
+                <div class="col-lg-12">
+                  <h4><b>3.3 Sentiment Analysis:
+                  </b></h4>
+                  </div>
+
+                <div class="col-lg-12">
+                  <p><b>Polarity Scores:</b> We used the python library `textblob`, which can return the polarity of a sentence. Polarity lies between [-1,1], -1 defines a negative sentiment and 1 defines a positive sentiment. Negation words reverse the polarity. We iterate the function `yearly_sentiment_analysis` over the list of lists `texts`, and get the sentiment analysis result stored in the dictionary `sentiments`. This helped in understanding the emotional tone of popular songs over time.</p>
+                </div>
+
+                <div class="col-lg-12">
+                <p><b>Trend Analysis:</b> Then we plotted the average sentiment scores over the years to identify any significant changes in the emotional tone of the songs.
+                </p>
+                </div>
+
+                <div class="col-lg-12">
+                  <h4><b>3.4 Topic Modeling (Attempted but not Successful):
+                  </b></h4>
+                  </div>
+
+
+                <div class="col-lg-12">
+                  <p><b>Latent Dirichlet Allocation (LDA):</b> We attempted to apply the LDA algorithm to train the model and discover the latent topics in the lyrics. The LDA is an unsupervised machine learning algorithm, which is similar to the clustering algorithm K-means, it will attempt to group words and documents into a predefined number of clusters, for example, the topics of the text. However, the results we got in the end were not coherent or meaningful.
+                  </p>
+                </div>
+
+
+                <div class="col-lg-12">
+                  <p>Possible Reasons for Poor Results:
+                  </p>
+                </div>
+
+
+
+                <div class="col-lg-12">
+                  <p><b>Short Texts:</b> Song lyrics are relatively short compared to other text corpora typically used for topic modeling, like articles or books. This brevity can lead to sparse data, making it difficult for the model to identify distinct topics.
+                  </p>
+                </div>
+
+
+
+                <div class="col-lg-12">
+                  <p><b>Repetitive Language:</b> Lyrics often use repetitive language, artistic expressions, and unconventional grammar, which can confuse topic modeling algorithms.
+                  </p>
+                </div>
+
+                
+                <div class="col-lg-12">
+                  <p><b>Context and Ambiguity:</b> Lyrics can be highly contextual and ambiguous, with meanings that are not easily discernible through automated methods. The poetic nature of lyrics often requires deeper interpretation that LDA may not effectively capture.
+                  </p>
+                </div>
+
+                <div class="col-lg-12 my-3"><h3>Results and Final Remarks:
+                </h3></div>
+
+                <div class="col-lg-12"><p>Our project's findings provide a thorough and informative look into the patterns and trends in popular music between 2000 and 2023. During this time, we have discovered important insights into the evolution of song qualities, artist demographics, and lyrical content by utilizing web scraping, natural language processing, and numerous data analytic approaches.
+                </p></div>
+
+                <div class="col-lg-12"><p>A significant gender gap was found in the analysis of popular musicians. Throughout the decade, male artists dominated the charts, although, over time, the proportion of female performers gradually increased. The metadata also included non-binary and other gender identities, indicating gender recognition in modern times. 
+                </p></div>
+
+
+
+                <div class="col-lg-12"><p>The information revealed a clear American artist predominance, with sporadic presence from the UK, Canada, and Australia among other nations. Towards the close of the decade, there was a discernible trend of expanding foreign influence, indicating a growing globalization of popular music. 
+                </p></div>
+
+
+
+
+                <div class="col-lg-12"><p>Regular word clouds and word analysis revealed recurring themes of partying, love, and relationships, which reflected the early 2000s cultural zeitgeist. 
+                </p></div>
+
+
+
+
+                <div class="col-lg-12"><p>The majority of popular songs' sentiment, according to sentiment analysis using TextBlob, was positive. Notable increases in either positive or negative sentiment corresponded to important cultural or global events. Over the course of the decade, the sentiment scores indicated variations in the emotional tones of the songs, with certain years exhibiting a greater inclination towards positive sentiments and others towards neutral or slightly negative sentiments. These patterns frequently matched the general attitudes of society, indicating that popular music both shapes and reflects popular opinion. 
+                </p></div>
+
+                <div class="col-lg-12"><p>Our attempt at topic modeling using the LDA model was unsuccessful, highlighting the unique challenges posed by the nature of song lyrics. The brevity, repetitive language, and poetic ambiguity of lyrics made it difficult to derive coherent topics using traditional NLP techniques. </p></div>
+
+
+                <div class="col-lg-12"><p>The visual representations, such as line charts, bar charts, and word clouds, offered clear and entertaining methods to evaluate the data. These visual aids were crucial for finding trends and facilitating analytical accessibility.
+                </p></div>
+
+                <div class="col-lg-12 my-3"><h3>Remarks:
+                </h3></div>
+
+                <div class="col-lg-12"><p>The project successfully demonstrates the ability of macroanalysis to detect hidden trends and patterns in popular music. Through a combination of sophisticated analysis algorithms, meticulous preparation, and advanced data collection methods, we have produced an overview that covers the whole musical landscape from 2000 to 2023. With our approach, we tried not to find definitive answers but to explore patterns that could lead to different explorations and observations. By combining data science with cultural studies, this research highlights the value of multidisciplinary approaches in advancing our knowledge of the factors influencing popular music and, consequently, society at large.
+                </p></div>
+
+                <div class="col-lg-12 my-3"><h3>Reflections and Future Developments
+                </h3></div>
+
+                <div class="col-lg-12"><p><b>Ludi</b></p></div>
+
+                <div class="col-lg-12"><p>In this project, I am mainly in charge of Python programming tasks, which cover the workflow from data scraping, data processing, the statistical analysis of metadata and textual data, and the final visualizations. The results of my work are concentrated in the obtained metadata and lyrics data and three Jupyter notebooks.</p></div>
+
+                <div class="col-lg-12"><p>Thanks to my basic knowledge of Python and NLP, additionally under the assistance of Chat GPT, I successfully obtained the desired data and processed results. However, there are still a few obvious flaws in the whole procedure which I didn’t pay attention to solving for this project:
+                </p></div>
+
+                <ul>
+                  <li>First of all, I didn’t manually check whether all the information I scraped from the web was complete and valid. For example, I didn’t look through all the Wikidata pages of the artists to ensure that the information about gender and citizenship is all correct and not missing. This leads me to think about how should we validate all the obtained data when their amount is enormous.
+                  </li>
+
+                  <li>The second dangerous approach I took was that I used a lot of ready-to-use Python libraries directly, without looking into how they were developed. Doubtful results could be produced when I did the sentiment analysis towards lyrics using the Textblob library. I only know that a “sentiment” property will return a named tuple of the form Sentiment(polarity, subjectivity). The polarity score is a float within the range [-1.0, 1.0].</li>
+                  <li>But even on their official website, I can not find any explicit information about how they annotate the corpus: which terms were rated as sentimentally positive and which were negative? The analytic result could be suspicious when a clear annotation guideline is unseen.
+                  </li>
+
+                  <li>Another problem emerged when I applied the machine learning approach of topic modeling without conducting a solid machine learning evaluation process. For example, in the pursuit of efficiency, I didn’t fine-tune the hyper-parameters of training through sophisticated evaluation, but simply according to my qualitative observation.
+                  </li>
+
+                  <li>To make up for this procedural flaw, I invited my colleague Maria Levchenko to do a peer evaluation for the topic modeling part, during which she used the same raw lyrics data but different methods, fortunately, we got the same results, which don’t make much sense and can only tell us that the pop music lyrics are not suitable materials for topic modeling.
+                  </li>
+
+                  <li>Even though the machine learning approach I attempted to use in this project does not return reasonable results and we can only blame this sad fact on the nature of the lyrics (after peer evaluation), I should still be aware of the procedural completeness in my future machine attempts.
+                  </li>
+                </ul>
+
+
+
+                <div class="col-lg-12"><p><b>Alka</b></p></div>
+                <div class="col-lg-12"><p>In this project, I was primarily responsible for writing the documentation. 
+                </p>
+
+                <ul>
+                  <li>The purpose of this document was to provide a systematic written explanation of the project from a theoretical perspective. I started with an introduction to the project, highlighting the main research questions. Following this, I wrote the methodology of our project, which included data collection and preparation, explaining data analysis for metadata, and text analysis, concluding with final remarks.</li>
+                  <li>In the documentation, I aimed to link our project workflow and results with the references we used: a) M.L. Jockers' Macroanalysis and b) S. Ramsay's Reading Machines. Both texts discuss the relationship between machines and text datasets and how various computational tools can uncover new patterns and observations.
+                  </li>
+
+                  <li>I designed this documentation to ensure that all aspects of the project were clearly outlined, explained, and made accessible for future reference and understandable to a broad audience, including those who may wish to replicate or build upon the research.</li>
+                  <li>With the documentation me and my team members also tried to explain the visualization outputs of the project giving our opinion on the outputs. </li>
+                  <li>Working on this project was really interesting, as I got to know how with different computational tools one can detect and arrange large text and make different observations from it.
+                  </li>
+                </ul>
+                
+
+
+
+                <div class="col-lg-12 my-3"><h3>Bibliography
+                </h3></div>
+
+                <ol>
+                  <li>Jockers, M.L. (2013). Macroanalysis. University of Illinois Press.
+                  </li>
+                  <li>Ramsay, S. (2011). Reading Machines. University of Illinois Press.
+                  </li>
+                </ol>
+
+
+
+
+
+                
+
+
+                
+
+
+
+            
+
+
+
+
+
               
-            <p class="lead">The Pop Zeitgeist project extracts, scrapes, and analyses song lyrics and related metadata from 2000 to 2010 with the goal of analysing and visualising patterns in popular culture. This comprehensive study, also known as macroanalysis, enables us to categorise and understand song lyrics on a wide scale. As defined by Matthew L. Jockers in his book Macroanalysis, “the macroanalytic approach is simply another method of gathering details, bits of information that may have escaped our attention because of their sheer multitude. At a more sophisticated level, it is about accessing details that are otherwise unavailable, forgotten, ignored, or impossible to extract.” </p>
 
-            <p>After selecting and gathering data, we used Python packages like Pandas and Matplotlib to analyse our metadata. We visualised the results of scraping the lyrics in order to gain insights about gender, region, emotions, and frequently used terms, among other factors. By examining these aspects, the project seeks to uncover patterns and shifts in popular music over time. Our analysis covers thorough procedures for data collection, preparation, and visualisation, as well as advanced natural language processing (NLP) techniques and statistical tools used to create insightful and entertaining visualisations. These algorithmic techniques helped us accomplish our goal of analysing and interpreting the tunes.</p>
+              
 
-            <blockquote><p>The idea of using algorithmic tools in the process of interpreting data in a more critical sense, also explained by Stephen Ramsay that “we create tools—practical, instrumental, verifiable mechanisms—that enable critical engagement, interpretation, conversation, and contemplation. It proposes that we channel the heightened objectivity made possible by the machine into the cultivation of those heightened subjectivities necessary for critical work.” This quote emphasises the significance of applying algorithmic tools, such as natural language processing (NLP) techniques and statistical analysis, to comprehend huge datasets like song lyrics. These technologies offer a methodical and objective approach to dealing with large amounts of data, revealing patterns and subtleties that might otherwise go unnoticed. This allows for a more nuanced and critical engagement with the data, resulting in deeper insights and interpretations of popular music patterns. This is consistent with Ramsay's notion of harnessing robots' objectivity to improve human subjective understanding and critical study of cultural processes.</p></blockquote>
+              
 
-            <p><b>The main research question</b> of our project is to analyse how popular music over time has evolved in different dimensions. 
-            </p>
+              
+
+
+
+              
+
+
+
+
+
+            
+            
+
+            
+
+
+
+
+
+            
+
+
+
+
+
+            
+
+
+
+
+
+
+            
+            
+
+    
+
+
+
+
+
+
+
+            
+
+
+            
+
+
+
+            
+            
             
 
 
